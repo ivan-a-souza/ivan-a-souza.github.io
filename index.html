@@ -1,12 +1,1136 @@
+<!-- File: index.html -->
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ivan - GitHub Pages</title>
-  </head>
-  <body>
-    <h1>Tá no ar ✅</h1>
-    <p>Publicado via GitHub Pages.</p>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Ivan Augusto Xavier Souza — Software Engineer</title>
+  <meta name="description" content="Portfólio de Ivan Augusto Xavier Souza. Projetos, stack e contato." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ivan Augusto Xavier Souza" />
+  <meta property="og:description" content="Projetos, stack e contato." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ivan-a-souza.github.io/" />
+
+  <style>
+    :root{
+      --bg: #070A12;
+      --bg2:#070A12;
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.52);
+
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --border: rgba(255,255,255,.10);
+
+      --shadow: 0 18px 65px rgba(0,0,0,.40);
+      --shadow2: 0 10px 35px rgba(0,0,0,.28);
+
+      --radius: 22px;
+      --radius2: 16px;
+
+      --accent: #7C5CFF;     /* roxo */
+      --accent2:#00D4FF;     /* cyan */
+      --accent3:#2DE2A6;     /* verde */
+
+      --max: 1120px;
+
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    }
+
+    [data-theme="light"]{
+      --bg: #F6F7FB;
+      --bg2:#FFFFFF;
+      --text: rgba(0,0,0,.90);
+      --muted: rgba(0,0,0,.62);
+      --muted2: rgba(0,0,0,.52);
+
+      --card: rgba(0,0,0,.045);
+      --card2: rgba(0,0,0,.06);
+      --border: rgba(0,0,0,.10);
+
+      --shadow: 0 18px 65px rgba(0,0,0,.12);
+      --shadow2: 0 10px 35px rgba(0,0,0,.10);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(900px 600px at 18% 10%, rgba(124,92,255,.22), transparent 65%),
+        radial-gradient(900px 600px at 78% 25%, rgba(0,212,255,.14), transparent 65%),
+        radial-gradient(900px 600px at 55% 90%, rgba(45,226,166,.10), transparent 65%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height: 1.45;
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ opacity:.92; }
+
+    /* subtle noise */
+    .noise{
+      pointer-events:none;
+      position:fixed;
+      inset:0;
+      opacity:.06;
+      mix-blend-mode: overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      background-size: 240px 240px;
+    }
+
+    .container{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+      position:relative;
+    }
+
+    /* NAV */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom: 26px;
+      position:sticky;
+      top: 12px;
+      z-index: 20;
+    }
+    .nav-inner{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 10px 12px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius: 999px;
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 220px;
+    }
+    .mark{
+      width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 5px rgba(124,92,255,.12);
+      flex:0 0 auto;
+    }
+    .brand strong{ font-weight:800; letter-spacing:-.2px; }
+    .brand span{ color: var(--muted); font-size:13px; }
+
+    .nav-links{
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .nav-links a{
+      color: var(--muted);
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .nav-links a:hover{
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    .nav-actions{
+      display:flex; align-items:center; gap:10px;
+      justify-content:flex-end;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      cursor:pointer;
+      user-select:none;
+      transition: transform .08s ease, background .2s ease;
+      font-size: 14px;
+      color: var(--text);
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
+    .btn:active{ transform: translateY(0px); }
+    .kbd{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted2);
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.10);
+      padding: 2px 6px;
+      border-radius: 10px;
+    }
+    [data-theme="light"] .kbd{ background: rgba(255,255,255,.65); }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    @media (max-width: 960px){
+      .hero{ grid-template-columns: 1fr; }
+      .brand{ min-width: auto; }
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+    }
+
+    .hero-main{ padding: 26px; }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .pill{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.10);
+      color: var(--muted);
+    }
+    [data-theme="light"] .pill{ background: rgba(255,255,255,.65); }
+
+    h1{
+      margin: 0;
+      font-size: clamp(30px, 4.6vw, 52px);
+      letter-spacing: -1px;
+      line-height: 1.05;
+    }
+    .grad{
+      background: linear-gradient(90deg, var(--text), rgba(255,255,255,.86), rgba(255,255,255,.65));
+      -webkit-background-clip: text;
+      background-clip:text;
+      color: transparent;
+    }
+    [data-theme="light"] .grad{
+      background: linear-gradient(90deg, rgba(0,0,0,.92), rgba(0,0,0,.78), rgba(0,0,0,.55));
+      -webkit-background-clip: text;
+      background-clip:text;
+      color: transparent;
+    }
+
+    .subtitle{
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+    }
+
+    .cta{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+    }
+    .btn-primary{
+      border-color: rgba(124,92,255,.45);
+      background: linear-gradient(135deg, rgba(124,92,255,.22), rgba(0,212,255,.14));
+    }
+
+    .hero-side{ padding: 18px; }
+    .profile{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      padding: 14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius2);
+    }
+    .avatar{
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      flex: 0 0 auto;
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .pname{ font-weight: 800; letter-spacing:-.2px; }
+    .pmeta{ color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+    .stats{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .stat{
+      padding: 12px;
+      border-radius: var(--radius2);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+    .stat .k{ color: var(--muted2); font-size: 12px; }
+    .stat .v{ font-size: 18px; font-weight: 850; margin-top: 4px; }
+    .stat .s{ color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+    .mini{
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: var(--radius2);
+      border: 1px dashed var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+    }
+
+    /* SECTION */
+    section{ margin-top: 22px; }
+    .section-head{
+      margin: 18px 4px 12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:-.2px;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 980px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } }
+
+    .item{
+      padding: 16px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      transition: transform .10s ease, background .2s ease, border-color .2s ease;
+    }
+    .item:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 860px){ .two{ grid-template-columns: 1fr; } }
+
+    .about p{
+      margin:0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tag{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.10);
+      color: var(--muted);
+    }
+    [data-theme="light"] .tag{ background: rgba(255,255,255,.65); }
+
+    /* Projects */
+    .projects-controls{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+    .projects-controls input{
+      flex: 1 1 260px;
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 11px 12px;
+      background: rgba(0,0,0,.10);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    [data-theme="light"] .projects-controls input{ background: rgba(255,255,255,.75); }
+
+    .chip{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      cursor:pointer;
+      user-select:none;
+      font-size: 13px;
+    }
+    .chip[data-on="1"]{
+      color: var(--text);
+      border-color: rgba(124,92,255,.45);
+      background: rgba(124,92,255,.16);
+    }
+
+    .proj{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      min-height: 178px;
+    }
+    .proj-top{
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .proj-name{
+      font-weight: 850;
+      letter-spacing:-.2px;
+      line-height: 1.2;
+    }
+    .proj-desc{
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0;
+      min-height: 42px;
+      line-height: 1.45;
+    }
+    .proj-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      color: var(--muted2);
+      font-size: 12px;
+      margin-top: auto;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .proj-meta .left{
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .proj-meta .right{
+      color: var(--muted2);
+      white-space:nowrap;
+    }
+
+    .sep{
+      height:1px;
+      border:0;
+      margin: 18px 0;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* reveal on scroll */
+    .reveal{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .reveal.on{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* footer */
+    footer{
+      margin-top: 22px;
+      padding: 18px 6px 0;
+      color: var(--muted2);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+    footer a{ color: var(--muted); text-decoration: underline dotted; text-underline-offset: 3px; }
+
+    /* toast */
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.45);
+      color: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow2);
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    [data-theme="light"] .toast{
+      background: rgba(255,255,255,.85);
+      color: rgba(0,0,0,.82);
+    }
+    .toast.on{
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise"></div>
+
+  <div class="container">
+    <div class="nav">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="mark"></div>
+          <div style="line-height:1.05">
+            <strong id="navName">Ivan A. Souza</strong><br/>
+            <span id="navSub">@ivan-a-souza • Brasília, DF</span>
+          </div>
+        </div>
+
+        <nav class="nav-links" aria-label="Seções">
+          <a href="#about">Sobre</a>
+          <a href="#skills">Stack</a>
+          <a href="#projects">Projetos</a>
+          <a href="#contact">Contato</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn" id="btnTheme" type="button" title="Alternar tema (T)">
+            🌓 Tema <span class="kbd">T</span>
+          </button>
+          <a class="btn" id="btnGithub" href="https://github.com/ivan-a-souza" target="_blank" rel="noreferrer">
+            ↗ GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="card hero-main reveal">
+        <div class="eyebrow">
+          <span class="pill">Software Engineer</span>
+          <span style="color:var(--muted2)">•</span>
+          <span id="heroLocation">Brasília, DF — Brasil</span>
+        </div>
+
+        <h1>
+          Construindo <span class="grad">software rápido</span>, com foco em
+          <span class="grad">arquitetura</span> e <span class="grad">performance</span>.
+        </h1>
+
+        <div class="subtitle" id="heroBio">
+          Node.js, Go, Rust e sistemas distribuídos. Projetos com foco em automação, agentes e produtos pragmáticos.
+        </div>
+
+        <div class="cta">
+          <a class="btn btn-primary" href="#projects">Ver projetos</a>
+          <a class="btn" id="btnEmail" href="#contact">Falar comigo</a>
+          <a class="btn" id="btnCV" href="https://github.com/ivan-a-souza" target="_blank" rel="noreferrer">Perfil / CV</a>
+        </div>
+      </div>
+
+      <div class="card hero-side reveal">
+        <div class="profile">
+          <div class="avatar"><img id="avatar" alt="Avatar do GitHub" /></div>
+          <div>
+            <div class="pname" id="pname">Ivan Augusto Xavier Souza</div>
+            <div class="pmeta" id="pmeta">@ivan-a-souza • NaEsquina</div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="k">Repos públicos</div>
+            <div class="v" id="sRepos">—</div>
+            <div class="s">no GitHub</div>
+          </div>
+          <div class="stat">
+            <div class="k">Followers</div>
+            <div class="v" id="sFollowers">—</div>
+            <div class="s">rede</div>
+          </div>
+          <div class="stat">
+            <div class="k">⭐ Stars</div>
+            <div class="v" id="sStars">—</div>
+            <div class="s">somatório</div>
+          </div>
+          <div class="stat">
+            <div class="k">Atualizado</div>
+            <div class="v" id="sUpdated">—</div>
+            <div class="s">cache local</div>
+          </div>
+        </div>
+
+        <div class="mini">
+          <span class="pill">Atalho</span>
+          <div>Pressione <span class="pill">T</span> para alternar tema. Este site é estático e usa API pública do GitHub.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep" />
+
+    <!-- ABOUT + HIGHLIGHTS -->
+    <section id="about" class="two">
+      <div class="card item about reveal">
+        <div class="section-head" style="margin:0 0 10px 0">
+          <h2>Sobre</h2>
+          <p id="aboutHint">bio + foco atual</p>
+        </div>
+
+        <p id="aboutText">
+          Sou desenvolvedor com foco em backend e arquitetura. Gosto de projetos “de verdade”: observabilidade,
+          performance, modularidade, DX e automação. Hoje meu foco é construir produtos e ferramentas em Node.js,
+          além de explorar Go e Rust em componentes de alto desempenho.
+        </p>
+
+        <div class="tags" id="aboutTags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Go</span>
+          <span class="tag">Rust</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">OpenSearch</span>
+          <span class="tag">Kubernetes</span>
+        </div>
+      </div>
+
+      <div class="card item reveal">
+        <div class="section-head" style="margin:0 0 10px 0">
+          <h2>Destaques</h2>
+          <p>o que eu faço bem</p>
+        </div>
+
+        <div class="tags">
+          <span class="tag">APIs e sistemas distribuídos</span>
+          <span class="tag">Arquitetura limpa / DDD</span>
+          <span class="tag">Performance & profiling</span>
+          <span class="tag">DevOps pragmático</span>
+          <span class="tag">Agentes/LLMs + integrações</span>
+          <span class="tag">Automação (n8n, pipelines)</span>
+        </div>
+
+        <div style="margin-top:12px; color:var(--muted); font-size:13px; line-height:1.6">
+          Se você quer um dev que entrega com qualidade e pensa no produto + manutenção, a gente se dá bem.
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-head">
+        <h2>Stack</h2>
+        <p>tecnologias que eu uso no dia a dia</p>
+      </div>
+
+      <div class="grid">
+        <div class="card item reveal">
+          <div style="font-weight:850; letter-spacing:-.2px">Backend</div>
+          <div style="margin-top:10px; color:var(--muted); font-size:13px; line-height:1.6">
+            Node.js, APIs REST, auth (JWT/OIDC), integrações, workers, filas, event-driven.
+          </div>
+          <div class="tags" style="margin-top:12px">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express / UltimateExpress</span>
+            <span class="tag">RabbitMQ</span>
+            <span class="tag">Redis</span>
+          </div>
+        </div>
+
+        <div class="card item reveal">
+          <div style="font-weight:850; letter-spacing:-.2px">Data</div>
+          <div style="margin-top:10px; color:var(--muted); font-size:13px; line-height:1.6">
+            Modelagem, performance, queries e busca semântica / full-text.
+          </div>
+          <div class="tags" style="margin-top:12px">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Drizzle ORM</span>
+            <span class="tag">OpenSearch</span>
+            <span class="tag">ETL</span>
+          </div>
+        </div>
+
+        <div class="card item reveal">
+          <div style="font-weight:850; letter-spacing:-.2px">Infra & DX</div>
+          <div style="margin-top:10px; color:var(--muted); font-size:13px; line-height:1.6">
+            CI/CD, containerização, ambientes reproduzíveis e observabilidade.
+          </div>
+          <div class="tags" style="margin-top:12px">
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">Logs / tracing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-head">
+        <h2>Projetos</h2>
+        <p>Top ⭐ + recentes (com busca)</p>
+      </div>
+
+      <div class="projects-controls card reveal" style="box-shadow:none">
+        <input id="q" type="search" placeholder="Filtrar por nome/descrição/linguagem…" autocomplete="off" />
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <div class="chip" id="chipTop" data-on="1">⭐ Top</div>
+          <div class="chip" id="chipRecent" data-on="1">🕒 Recentes</div>
+          <div class="chip" id="chipForks" data-on="0">🍴 Forks</div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:14px">
+        <h2>⭐ Top</h2>
+        <p id="topCount">—</p>
+      </div>
+      <div class="grid" id="topGrid"></div>
+
+      <div class="section-head" style="margin-top:18px">
+        <h2>🕒 Recentes</h2>
+        <p id="recentCount">—</p>
+      </div>
+      <div class="grid" id="recentGrid"></div>
+
+      <div style="margin-top:12px; color:var(--muted2); font-size:12px">
+        Dica: se quiser “projetos em destaque” (curadoria manual), eu deixo uma lista fixa no topo com 3–6 projetos pinados.
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head">
+        <h2>Contato</h2>
+        <p>vamos conversar</p>
+      </div>
+
+      <div class="two">
+        <div class="card item reveal">
+          <div style="font-weight:850; letter-spacing:-.2px">Onde me achar</div>
+          <div style="margin-top:10px; color:var(--muted); font-size:13px; line-height:1.6">
+            Me chama por qualquer canal abaixo.
+          </div>
+
+          <div class="cta" style="margin-top:14px">
+            <a class="btn btn-primary" id="lnkGitHub" href="https://github.com/ivan-a-souza" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" id="lnkEmail" href="mailto:ivan.augustoxs@gmail.com">Email</a>
+            <!-- opcional: LinkedIn -->
+            <a class="btn" id="lnkLinkedIn" href="#" target="_blank" rel="noreferrer" title="Edite no código para o seu LinkedIn">LinkedIn</a>
+          </div>
+
+          <div style="margin-top:14px; color:var(--muted2); font-size:12px">
+            (Se você quiser, eu coloco botão de WhatsApp também.)
+          </div>
+        </div>
+
+        <div class="card item reveal">
+          <div style="font-weight:850; letter-spacing:-.2px">O que eu curto construir</div>
+          <div class="tags" style="margin-top:12px">
+            <span class="tag">SaaS</span>
+            <span class="tag">Agentes + integrações</span>
+            <span class="tag">Automação</span>
+            <span class="tag">Ferramentas dev</span>
+            <span class="tag">Sistemas de busca</span>
+            <span class="tag">Arquitetura modular</span>
+          </div>
+
+          <div style="margin-top:14px; color:var(--muted); font-size:13px; line-height:1.6">
+            Se você tem um produto e quer velocidade sem virar bagunça, eu sou esse tipo de pessoa chata com qualidade 😄
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        Feito com ⚡ GitHub Pages • <a href="https://pages.github.com/" target="_blank" rel="noreferrer">docs</a>
+      </div>
+      <div id="footTime">—</div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">—</div>
+
+  <script>
+    (function(){
+      "use strict";
+
+      const USER = "ivan-a-souza";
+      const API_PROFILE = `https://api.github.com/users/${USER}`;
+      const API_REPOS = `https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`;
+
+      const el = (id)=>document.getElementById(id);
+
+      const state = {
+        profile: null,
+        repos: [],
+        cfg: { q:"", top:true, recent:true, forks:false }
+      };
+
+      const cacheKey = (k)=>`ias_portfolio_${k}_v2`;
+      const nowIso = ()=>new Date().toISOString();
+
+      let toastTimer = null;
+      function toast(msg){
+        const t = el("toast");
+        t.textContent = msg;
+        t.classList.add("on");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(()=>t.classList.remove("on"), 1600);
+      }
+
+      function initTheme(){
+        const saved = localStorage.getItem(cacheKey("theme"));
+        if(saved === "light" || saved === "dark"){
+          document.documentElement.setAttribute("data-theme", saved);
+          return;
+        }
+        const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+        document.documentElement.setAttribute("data-theme", prefersLight ? "light" : "dark");
+      }
+      function toggleTheme(){
+        const cur = document.documentElement.getAttribute("data-theme") || "dark";
+        const next = cur === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem(cacheKey("theme"), next);
+        toast(`Tema: ${next === "light" ? "claro" : "escuro"}`);
+      }
+
+      function formatK(n){
+        if(typeof n !== "number") return "—";
+        if(n < 1000) return String(n);
+        const k = n/1000;
+        if(k < 10) return (Math.round(k*10)/10) + "k";
+        return Math.round(k) + "k";
+      }
+
+      function relTime(iso){
+        try{
+          const d = new Date(iso);
+          const diff = Date.now() - d.getTime();
+          const sec = Math.floor(diff/1000);
+          const min = Math.floor(sec/60);
+          const hr = Math.floor(min/60);
+          const day = Math.floor(hr/24);
+          if(day > 30) return d.toLocaleDateString("pt-BR");
+          if(day >= 2) return `há ${day} dias`;
+          if(day === 1) return "há 1 dia";
+          if(hr >= 2) return `há ${hr} horas`;
+          if(hr === 1) return "há 1 hora";
+          if(min >= 2) return `há ${min} min`;
+          if(min === 1) return "há 1 min";
+          return "agora";
+        }catch(_){ return "—"; }
+      }
+
+      function escapeHtml(s){
+        return String(s)
+          .replaceAll("&","&amp;")
+          .replaceAll("<","&lt;")
+          .replaceAll(">","&gt;")
+          .replaceAll('"',"&quot;")
+          .replaceAll("'","&#039;");
+      }
+
+      function sumStars(repos){
+        return repos.reduce((acc,r)=>acc + (r.stargazers_count||0), 0);
+      }
+
+      function saveCache(profile, repos){
+        try{
+          localStorage.setItem(cacheKey("cache"), JSON.stringify({ at: nowIso(), profile, repos }));
+        }catch(_){}
+      }
+      function loadCache(){
+        try{
+          const raw = localStorage.getItem(cacheKey("cache"));
+          if(!raw) return null;
+          const obj = JSON.parse(raw);
+          if(!obj || !obj.profile || !Array.isArray(obj.repos)) return null;
+          return obj;
+        }catch(_){ return null; }
+      }
+
+      async function fetchJson(url){
+        const res = await fetch(url, { headers: { "Accept":"application/vnd.github+json" }});
+        let data = null;
+        try{ data = await res.json(); }catch(_){}
+        return { ok: res.ok, status: res.status, data };
+      }
+
+      function applyProfile(p){
+        state.profile = p;
+
+        el("avatar").src = p.avatar_url || "";
+        el("navName").textContent = p.name || "Ivan A. Souza";
+        el("navSub").textContent = `@${p.login || USER} • ${p.location || "Brasília, DF"}`;
+
+        el("pname").textContent = p.name || "Ivan Augusto Xavier Souza";
+        el("pmeta").textContent = `@${p.login || USER}${p.company ? " • " + p.company : ""}`;
+
+        el("heroLocation").textContent = p.location || "Brasília, DF — Brasil";
+
+        // Bio (se não tiver, mantém texto “bonito” padrão)
+        if(p.bio && String(p.bio).trim()){
+          el("heroBio").textContent = p.bio.trim();
+          el("aboutText").textContent = p.bio.trim();
+          el("aboutHint").textContent = "bio do GitHub";
+        }else{
+          el("aboutHint").textContent = "resumo";
+        }
+
+        el("sRepos").textContent = formatK(p.public_repos || 0);
+        el("sFollowers").textContent = formatK(p.followers || 0);
+
+        // links
+        el("btnGithub").href = p.html_url || `https://github.com/${USER}`;
+        el("lnkGitHub").href = p.html_url || `https://github.com/${USER}`;
+
+        // se tiver blog, troca o CV link
+        if(p.blog && String(p.blog).trim()){
+          el("btnCV").href = p.blog;
+          el("btnCV").textContent = "Website";
+        }
+
+        // email publico raramente vem; você já setou no HTML
+      }
+
+      function projectCard(r){
+        const a = document.createElement("a");
+        a.className = "card item proj reveal";
+        a.href = r.html_url;
+        a.target = "_blank";
+        a.rel = "noreferrer";
+
+        const desc = r.description ? r.description : "Sem descrição.";
+        const lang = r.language ? r.language : "—";
+        const upd = r.updated_at ? relTime(r.updated_at) : "—";
+
+        a.innerHTML = `
+          <div class="proj-top">
+            <div style="display:flex; flex-direction:column; gap:8px">
+              <div class="proj-name">${escapeHtml(r.name)}</div>
+              <p class="proj-desc">${escapeHtml(desc)}</p>
+            </div>
+            <div style="color:var(--muted2); font-size:12px; text-align:right; white-space:nowrap">
+              ⭐ ${formatK(r.stargazers_count || 0)}<br/>
+              🍴 ${formatK(r.forks_count || 0)}
+            </div>
+          </div>
+          <div class="proj-meta">
+            <div class="left">
+              <span class="tag">${escapeHtml(lang)}</span>
+              ${r.fork ? `<span class="tag">fork</span>` : ``}
+              ${r.archived ? `<span class="tag">archived</span>` : ``}
+            </div>
+            <div class="right">Atualizado ${escapeHtml(upd)}</div>
+          </div>
+        `;
+        return a;
+      }
+
+      function filterRepos(){
+        const q = state.cfg.q.trim().toLowerCase();
+        const includeForks = state.cfg.forks;
+
+        let arr = state.repos.slice();
+
+        if(!includeForks) arr = arr.filter(r => !r.fork);
+
+        if(q){
+          arr = arr.filter(r => {
+            const hay = [
+              r.name, r.description, r.language,
+              (r.topics && Array.isArray(r.topics)) ? r.topics.join(" ") : ""
+            ].filter(Boolean).join(" ").toLowerCase();
+            return hay.includes(q);
+          });
+        }
+
+        const top = arr
+          .slice()
+          .sort((a,b)=> (b.stargazers_count||0) - (a.stargazers_count||0) || (new Date(b.updated_at)-new Date(a.updated_at)))
+          .slice(0, 9);
+
+        const recent = arr
+          .slice()
+          .sort((a,b)=> (new Date(b.updated_at)-new Date(a.updated_at)))
+          .slice(0, 9);
+
+        return { arr, top, recent };
+      }
+
+      function renderProjects(){
+        const { arr, top, recent } = filterRepos();
+
+        const topGrid = el("topGrid");
+        const recentGrid = el("recentGrid");
+
+        topGrid.innerHTML = "";
+        recentGrid.innerHTML = "";
+
+        if(state.cfg.top){
+          top.forEach(r => topGrid.appendChild(projectCard(r)));
+          el("topCount").textContent = `${top.length} / ${arr.length}`;
+        }else{
+          topGrid.innerHTML = `<div style="color:var(--muted); padding:10px 6px">TOP oculto.</div>`;
+          el("topCount").textContent = "—";
+        }
+
+        if(state.cfg.recent){
+          recent.forEach(r => recentGrid.appendChild(projectCard(r)));
+          el("recentCount").textContent = `${recent.length} / ${arr.length}`;
+        }else{
+          recentGrid.innerHTML = `<div style="color:var(--muted); padding:10px 6px">Recentes oculto.</div>`;
+          el("recentCount").textContent = "—";
+        }
+
+        // re-run reveal observer for new nodes
+        setupReveal(true);
+      }
+
+      function wireUI(){
+        el("btnTheme").addEventListener("click", toggleTheme);
+        document.addEventListener("keydown", (e)=>{
+          if(e.key && e.key.toLowerCase() === "t") toggleTheme();
+        });
+
+        el("q").addEventListener("input", ()=>{
+          state.cfg.q = el("q").value || "";
+          renderProjects();
+        });
+
+        const chip = (id, onChange)=>{
+          const c = el(id);
+          c.addEventListener("click", ()=>{
+            const on = c.getAttribute("data-on") === "1";
+            c.setAttribute("data-on", on ? "0" : "1");
+            onChange(!on);
+          });
+        };
+
+        chip("chipTop", (v)=>{ state.cfg.top = v; renderProjects(); });
+        chip("chipRecent", (v)=>{ state.cfg.recent = v; renderProjects(); });
+        chip("chipForks", (v)=>{ state.cfg.forks = v; renderProjects(); });
+      }
+
+      let revealObserver = null;
+      function setupReveal(rebind){
+        const nodes = document.querySelectorAll(".reveal");
+        if(!rebind && revealObserver) return;
+
+        if(revealObserver) revealObserver.disconnect();
+
+        revealObserver = new IntersectionObserver((entries)=>{
+          for(const e of entries){
+            if(e.isIntersecting){
+              e.target.classList.add("on");
+              revealObserver.unobserve(e.target);
+            }
+          }
+        }, { threshold: 0.12 });
+
+        nodes.forEach(n => {
+          if(!n.classList.contains("on")) revealObserver.observe(n);
+        });
+      }
+
+      async function bootstrap(){
+        initTheme();
+        wireUI();
+        setupReveal(false);
+
+        // cache first
+        const cached = loadCache();
+        if(cached){
+          applyProfile(cached.profile);
+          state.repos = cached.repos;
+          el("sStars").textContent = formatK(sumStars(state.repos));
+          el("sUpdated").textContent = relTime(cached.at);
+          el("footTime").textContent = `Cache: ${new Date(cached.at).toLocaleString("pt-BR")}`;
+          renderProjects();
+        }else{
+          el("footTime").textContent = "Carregando…";
+        }
+
+        // fetch fresh
+        try{
+          const [pRes, rRes] = await Promise.all([fetchJson(API_PROFILE), fetchJson(API_REPOS)]);
+          if(pRes.ok && pRes.data && pRes.data.login) applyProfile(pRes.data);
+
+          if(rRes.ok && Array.isArray(rRes.data)){
+            state.repos = rRes.data;
+            el("sStars").textContent = formatK(sumStars(state.repos));
+            renderProjects();
+          }
+
+          const at = nowIso();
+          saveCache(pRes.data, state.repos);
+          el("sUpdated").textContent = "agora";
+          el("footTime").textContent = `Atualizado: ${new Date(at).toLocaleString("pt-BR")}`;
+          toast("Dados atualizados do GitHub");
+        }catch(_){
+          if(!cached){
+            el("footTime").textContent = "Offline / rate limit. Recarregue depois.";
+          }
+          toast("Falha ao buscar dados (cache pode ajudar)");
+        }
+      }
+
+      bootstrap();
+    })();
+  </script>
+</body>
 </html>
