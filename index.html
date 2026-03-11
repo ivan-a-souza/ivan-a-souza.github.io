@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <title>Ivan Augusto Xavier Souza — Software Engineer</title>
-  <meta name="description" content="Portfólio de Ivan Augusto Xavier Souza. Projetos, stack e contato." />
+  <title data-t="title">Ivan Augusto Xavier Souza — Software Engineer</title>
+  <meta name="description" content="Portfólio de Ivan Augusto Xavier Souza. Projetos, stack e contato." data-t="description" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Ivan Augusto Xavier Souza" />
@@ -330,6 +330,9 @@
         </div>
       </div>
       <div class="nav-actions">
+        <button id="btnLang" class="btn" title="Alternar idioma">
+          <span id="langLabel" style="font-weight: 700; font-size: 0.8rem;">EN</span>
+        </button>
         <button id="btnTheme" class="btn" title="Alternar tema">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
         </button>
@@ -337,62 +340,62 @@
     </nav>
 
     <header class="hero reveal">
-      <h1>Olá, me chamo Ivan.<br/>Construindo software rápido, com foco em arquitetura e performance.</h1>
-      <p id="heroBio">Node.js, Go, Rust e sistemas distribuídos. Projetos com foco em automação, agentes e produtos pragmáticos.</p>
+      <h1 data-t="hero_title">Construindo software rápido, com foco em arquitetura e performance.</h1>
+      <p id="heroBio" data-t="hero_bio">Node.js, Go, Rust e sistemas distribuídos. Projetos com foco em automação, agentes e produtos pragmáticos.</p>
       <div class="hero-meta">
         <div class="item">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          <span id="heroLocation">Brasília, DF</span>
+          <span id="heroLocation" data-t="hero_location">Brasília, DF</span>
         </div>
         <div class="item">
            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-          <span>Aberto para oportunidades</span>
+          <span data-t="hero_status">Aberto para oportunidades</span>
         </div>
         <div class="item">
-           <a href="#projects" style="color: var(--text); font-weight: 500; text-decoration: underline; text-underline-offset: 4px;">Ver projetos ↓</a>
+           <a href="#projects" data-t="hero_cta" style="color: var(--text); font-weight: 500; text-decoration: underline; text-underline-offset: 4px;">Ver projetos ↓</a>
         </div>
       </div>
     </header>
 
     <div class="stats reveal">
       <div class="stat">
-        <span class="stat-label">Repositórios</span>
+        <span class="stat-label" data-t="stat_repos">Repositórios</span>
         <span class="stat-val" id="sRepos">—</span>
       </div>
       <div class="stat">
-        <span class="stat-label">Seguidores</span>
+        <span class="stat-label" data-t="stat_followers">Seguidores</span>
         <span class="stat-val" id="sFollowers">—</span>
       </div>
       <div class="stat">
-        <span class="stat-label">Estrelas Total</span>
+        <span class="stat-label" data-t="stat_stars">Estrelas Total</span>
         <span class="stat-val" id="sStars">—</span>
       </div>
     </div>
 
     <section id="about" class="reveal">
-      <h2>Sobre</h2>
+      <h2 data-t="about_title">Sobre</h2>
       <div class="card">
-        <p id="aboutText">
+        <p id="aboutText" data-t="about_text_1">
           Sou desenvolvedor com foco em backend e arquitetura. Gosto de projetos “de verdade”: observabilidade, performance, modularidade, DX e automação. Hoje meu foco é construir produtos e ferramentas em Node.js, além de explorar Go e Rust em componentes de alto desempenho.
         </p>
-        <p>Se você quer um dev que entrega com qualidade e pensa no produto + manutenção, a gente se dá bem.</p>
+        <p data-t="about_text_2">Se você quer um dev que entrega com qualidade e pensa no produto + manutenção, a gente se dá bem.</p>
         <div class="tags" id="aboutTags">
-           <span class="tag">APIs e Sistemas Distribuídos</span>
-           <span class="tag">Arquitetura Limpa / DDD</span>
-           <span class="tag">Performance & Profiling</span>
-           <span class="tag">DevOps Pragmático</span>
-           <span class="tag">Agentes/LLMs + integrações</span>
-           <span class="tag">Automação (n8n, pipelines)</span>
+           <span class="tag" data-t="tag_apis">APIs e Sistemas Distribuídos</span>
+           <span class="tag" data-t="tag_arch">Arquitetura Limpa / DDD</span>
+           <span class="tag" data-t="tag_perf">Performance & Profiling</span>
+           <span class="tag" data-t="tag_devops">DevOps Pragmático</span>
+           <span class="tag" data-t="tag_agents">Agentes/LLMs + integrações</span>
+           <span class="tag" data-t="tag_automation">Automação (n8n, pipelines)</span>
         </div>
       </div>
     </section>
 
     <section id="skills" class="reveal">
-      <h2>Stack & Destaques</h2>
+      <h2 data-t="skills_title">Stack & Destaques</h2>
       <div class="bento-grid">
         <div class="card">
-          <h3>Backend</h3>
-          <p>Node.js, APIs REST, auth (JWT/OIDC), integrações, workers, filas, event-driven.</p>
+          <h3 data-t="skill_backend_title">Backend</h3>
+          <p data-t="skill_backend_desc">Node.js, APIs REST, auth (JWT/OIDC), integrações, workers, filas, event-driven.</p>
           <div class="tags">
             <span class="tag">Node.js</span>
             <span class="tag">Go</span>
@@ -401,8 +404,8 @@
           </div>
         </div>
         <div class="card">
-          <h3>Data</h3>
-          <p>Modelagem, performance, queries e busca semântica / full-text.</p>
+          <h3 data-t="skill_data_title">Data</h3>
+          <p data-t="skill_data_desc">Modelagem, performance, queries e busca semântica / full-text.</p>
           <div class="tags">
             <span class="tag">PostgreSQL</span>
             <span class="tag">Knex.js</span>
@@ -410,8 +413,8 @@
           </div>
         </div>
         <div class="card" style="grid-column: 1 / -1;">
-          <h3>Infra & DX</h3>
-          <p>CI/CD, containerização, ambientes reproduzíveis e observabilidade.</p>
+          <h3 data-t="skill_infra_title">Infra & DX</h3>
+          <p data-t="skill_infra_desc">CI/CD, containerização, ambientes reproduzíveis e observabilidade.</p>
           <div class="tags">
             <span class="tag">Docker</span>
             <span class="tag">Kubernetes</span>
@@ -424,15 +427,15 @@
 
     <section id="projects" class="reveal">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-        <h2 style="margin: 0;">Projetos <span id="repoCount" style="color: var(--muted); font-size: 0.9rem; font-weight: normal; margin-left: 8px;"></span></h2>
+        <h2 style="margin: 0;"><span data-t="projects_title">Projetos</span> <span id="repoCount" style="color: var(--muted); font-size: 0.9rem; font-weight: normal; margin-left: 8px;"></span></h2>
       </div>
       
       <div class="projects-filter">
-        <input id="q" type="search" class="search-input" placeholder="Filtrar por nome, descrição ou linguagem..." autocomplete="off" />
+        <input id="q" type="search" class="search-input" placeholder="Filtrar por nome, descrição ou linguagem..." data-t-placeholder="search_placeholder" autocomplete="off" />
         <div class="chips">
-          <div class="chip" id="chipTop" data-on="1">Populares</div>
-          <div class="chip" id="chipRecent" data-on="0">Recentes</div>
-          <div class="chip" id="chipForks" data-on="0">Incluir Forks</div>
+          <div class="chip" id="chipTop" data-on="1" data-t="chip_popular">Populares</div>
+          <div class="chip" id="chipRecent" data-on="0" data-t="chip_recent">Recentes</div>
+          <div class="chip" id="chipForks" data-on="0" data-t="chip_forks">Incluir Forks</div>
         </div>
       </div>
 
@@ -441,26 +444,31 @@
       </div>
     </section>
 
-    <section id="contact" class="reveal">
-      <h2>Contato</h2>
+    <section id="focus" class="reveal">
+      <h2 data-t="focus_title">O que eu curto construir</h2>
       <div class="card">
-        <h3 style="margin-bottom: 12px; font-size: 1.1rem;">O que eu curto construir</h3>
         <div class="tags" style="margin-bottom: 24px;">
-          <span class="tag">SaaS</span>
-          <span class="tag">Agentes + integrações</span>
-          <span class="tag">Automação</span>
-          <span class="tag">Ferramentas dev</span>
-          <span class="tag">Sistemas de busca</span>
-          <span class="tag">Arquitetura modular</span>
+          <span class="tag" data-t="tag_saas">SaaS</span>
+          <span class="tag" data-t="tag_agents_int">Agentes + integrações</span>
+          <span class="tag" data-t="tag_auto">Automação</span>
+          <span class="tag" data-t="tag_dev_tools">Ferramentas dev</span>
+          <span class="tag" data-t="tag_search">Sistemas de busca</span>
+          <span class="tag" data-t="tag_modular">Arquitetura modular</span>
         </div>
-        <p>Se você tem um produto e quer velocidade sem virar bagunça, eu sou esse tipo de pessoa chata com qualidade 😄</p>
-        <p>Estou aberto a conversar sobre parcerias, consultorias e novos desafios. Sinta-se à vontade para entrar em contato.</p>
+        <p data-t="focus_text">Se você tem um produto e quer velocidade sem virar bagunça, eu sou esse tipo de pessoa chata com qualidade 😄</p>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <h2 data-t="contact_title">Contato</h2>
+      <div class="card">
+        <p data-t="contact_text">Estou aberto a conversar sobre parcerias, consultorias e novos desafios. Sinta-se à vontade para entrar em contato.</p>
         <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
           <a class="btn" id="lnkGitHub" href="https://github.com/ivan-a-souza" target="_blank" rel="noreferrer">
             <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             GitHub
           </a>
-          <a class="btn" id="lnkLinkedIn" href="https://linkedin.com/in/ivan-a-souza" target="_blank" rel="noreferrer">
+          <a class="btn" id="lnkLinkedIn" href="https://www.linkedin.com/in/ivan-augusto-xavier-souza/" target="_blank" rel="noreferrer">
              <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
              LinkedIn
           </a>
@@ -468,11 +476,11 @@
              <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
              WhatsApp
           </a>
-          <a class="btn" id="lnkInstagram" href="https://instagram.com/ivan-a-souza" target="_blank" rel="noreferrer">
+          <a class="btn" id="lnkInstagram" href="https://www.instagram.com/ivan_a_souza" target="_blank" rel="noreferrer">
              <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
              Instagram
           </a>
-          <a class="btn" id="lnkTwitter" href="https://twitter.com/ivan-a-souza" target="_blank" rel="noreferrer">
+          <a class="btn" id="lnkTwitter" href="https://x.com/ivan_a_souza" target="_blank" rel="noreferrer">
              <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
              Twitter
           </a>
@@ -505,7 +513,125 @@
       const state = {
         profile: null,
         repos: [],
-        cfg: { q:"", top:true, recent:false, forks:false }
+        cfg: { q:"", top:true, recent:false, forks:false },
+        lang: "pt"
+      };
+
+      const trans = {
+        pt: {
+          title: "Ivan Augusto Xavier Souza — Software Engineer",
+          description: "Portfólio de Ivan Augusto Xavier Souza. Projetos, stack e contato.",
+          hero_title: "Construindo software rápido, com foco em arquitetura e performance.",
+          hero_bio: "Node.js, Go, Rust e sistemas distribuídos. Projetos com foco em automação, agentes e produtos pragmáticos.",
+          hero_location: "Brasília, DF",
+          hero_status: "Aberto para oportunidades",
+          hero_cta: "Ver projetos ↓",
+          stat_repos: "Repositórios",
+          stat_followers: "Seguidores",
+          stat_stars: "Estrelas Total",
+          about_title: "Sobre",
+          about_text_1: "Sou desenvolvedor com foco em backend e arquitetura. Gosto de projetos “de verdade”: observabilidade, performance, modularidade, DX e automação. Hoje meu foco é construir produtos e ferramentas em Node.js, além de explorar Go e Rust em componentes de alto desempenho.",
+          about_text_2: "Se você quer um dev que entrega com qualidade e pensa no produto + manutenção, a gente se dá bem.",
+          tag_apis: "APIs e Sistemas Distribuídos",
+          tag_arch: "Arquitetura Limpa / DDD",
+          tag_perf: "Performance & Profiling",
+          tag_devops: "DevOps Pragmático",
+          tag_agents: "Agentes/LLMs + integrações",
+          tag_automation: "Automação (n8n, pipelines)",
+          skills_title: "Stack & Destaques",
+          skill_backend_title: "Backend",
+          skill_backend_desc: "Node.js, APIs REST, auth (JWT/OIDC), integrações, workers, filas, event-driven.",
+          skill_data_title: "Data",
+          skill_data_desc: "Modelagem, performance, queries e busca semântica / full-text.",
+          skill_infra_title: "Infra & DX",
+          skill_infra_desc: "CI/CD, containerização, ambientes reproduzíveis e observabilidade.",
+          projects_title: "Projetos",
+          search_placeholder: "Filtrar por nome, descrição ou linguagem...",
+          chip_popular: "Populares",
+          chip_recent: "Recentes",
+          chip_forks: "Incluir Forks",
+          no_repos: "Nenhum repositório encontrado com esses filtros.",
+          focus_title: "O que eu curto construir",
+          tag_saas: "SaaS",
+          tag_agents_int: "Agentes + integrações",
+          tag_auto: "Automação",
+          tag_dev_tools: "Ferramentas dev",
+          tag_search: "Sistemas de busca",
+          tag_modular: "Arquitetura modular",
+          focus_text: "Se você tem um produto e quer velocidade sem virar bagunça, eu sou esse tipo de pessoa chata com qualidade 😄",
+          contact_title: "Contato",
+          contact_text: "Estou aberto a conversar sobre parcerias, consultorias e novos desafios. Sinta-se à vontade para entrar em contato.",
+          footer_sync: "Sincronizado do GitHub agora.",
+          footer_cache_1: "Dados em cache de ",
+          footer_error: "Erro na API do GitHub. Tente recarregar.",
+          toast_theme_light: "Tema: claro",
+          toast_theme_dark: "Tema: escuro",
+          toast_lang: "Idioma: Português",
+          rel_days: "há {n} dias",
+          rel_day: "há 1 dia",
+          rel_hrs: "há {n} horas",
+          rel_hr: "há 1 hora",
+          rel_mins: "há {n} min",
+          rel_min: "há 1 min",
+          rel_now: "agora"
+        },
+        en: {
+          title: "Ivan Augusto Xavier Souza — Software Engineer",
+          description: "Portfolio of Ivan Augusto Xavier Souza. Projects, stack and contact.",
+          hero_title: "Building fast software with focus on architecture and performance.",
+          hero_bio: "Node.js, Go, Rust and distributed systems. Projects focused on automation, agents and pragmatic products.",
+          hero_location: "Brasilia, Brazil",
+          hero_status: "Open for opportunities",
+          hero_cta: "View projects ↓",
+          stat_repos: "Repositories",
+          stat_followers: "Followers",
+          stat_stars: "Total Stars",
+          about_title: "About",
+          about_text_1: "I'm a developer focused on backend and architecture. I like \"real\" projects: observability, performance, modularity, DX and automation. Today my focus is building products and tools in Node.js, besides exploring Go and Rust in high-performance components.",
+          about_text_2: "If you want a developer who delivers with quality and thinks about product + maintenance, we'll get along well.",
+          tag_apis: "APIs & Distributed Systems",
+          tag_arch: "Clean Architecture / DDD",
+          tag_perf: "Performance & Profiling",
+          tag_devops: "Pragmatic DevOps",
+          tag_agents: "Agents/LLMs + integrations",
+          tag_automation: "Automation (n8n, pipelines)",
+          skills_title: "Stack & Highlights",
+          skill_backend_title: "Backend",
+          skill_backend_desc: "Node.js, REST APIs, auth (JWT/OIDC), integrations, workers, queues, event-driven.",
+          skill_data_title: "Data",
+          skill_data_desc: "Modeling, performance, queries and semantic / full-text search.",
+          skill_infra_title: "Infra & DX",
+          skill_infra_desc: "CI/CD, containerization, reproducible environments and observability.",
+          projects_title: "Projects",
+          search_placeholder: "Filter by name, description or language...",
+          chip_popular: "Popular",
+          chip_recent: "Recent",
+          chip_forks: "Include Forks",
+          no_repos: "No repository found with these filters.",
+          focus_title: "What I like to build",
+          tag_saas: "SaaS",
+          tag_agents_int: "Agents + integrations",
+          tag_auto: "Automation",
+          tag_dev_tools: "Dev tools",
+          tag_search: "Search systems",
+          tag_modular: "Modular architecture",
+          focus_text: "If you have a product and want speed without making a mess, I'm that kind of person who's picky about quality 😄",
+          contact_title: "Contact",
+          contact_text: "I'm open to talk about partnerships, consulting and new challenges. Feel free to reach out.",
+          footer_sync: "Synced from GitHub now.",
+          footer_cache_1: "Cached data from ",
+          footer_error: "GitHub API error. Try reloading.",
+          toast_theme_light: "Theme: light",
+          toast_theme_dark: "Theme: dark",
+          toast_lang: "Language: English",
+          rel_days: "{n} days ago",
+          rel_day: "1 day ago",
+          rel_hrs: "{n} hours ago",
+          rel_hr: "1 hour ago",
+          rel_mins: "{n} min ago",
+          rel_min: "1 min ago",
+          rel_now: "now"
+        }
       };
 
       const cacheKey = (k)=>`ias_portfolio_${k}_v3`;
@@ -519,6 +645,47 @@
         t.classList.add("on");
         clearTimeout(toastTimer);
         toastTimer = setTimeout(()=>t.classList.remove("on"), 2500);
+      }
+
+      function initLang(){
+        const saved = localStorage.getItem(cacheKey("lang"));
+        if(saved === "en" || saved === "pt"){
+          state.lang = saved;
+        } else {
+          const browserLang = navigator.language || navigator.userLanguage;
+          state.lang = browserLang.startsWith("pt") ? "pt" : "en";
+        }
+        applyLang(state.lang);
+      }
+
+      function toggleLang(){
+        state.lang = state.lang === "pt" ? "en" : "pt";
+        localStorage.setItem(cacheKey("lang"), state.lang);
+        applyLang(state.lang);
+        toast(trans[state.lang].toast_lang);
+        renderProjects(); // Refresh time strings in cards
+      }
+
+      function applyLang(lang){
+        const bundle = trans[lang];
+        if(!bundle) return;
+        
+        document.querySelectorAll("[data-t]").forEach(node => {
+          const key = node.getAttribute("data-t");
+          if(bundle[key]) node.textContent = bundle[key];
+        });
+
+        document.querySelectorAll("[data-t-placeholder]").forEach(node => {
+          const key = node.getAttribute("data-t-placeholder");
+          if(bundle[key]) node.placeholder = bundle[key];
+        });
+
+        // Update meta
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if(metaDesc && bundle.description) metaDesc.setAttribute("content", bundle.description);
+        if(bundle.title) document.title = bundle.title;
+
+        if(el("langLabel")) el("langLabel").textContent = lang === "pt" ? "EN" : "PT";
       }
 
       function initTheme(){
@@ -536,7 +703,8 @@
         const next = cur === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", next);
         localStorage.setItem(cacheKey("theme"), next);
-        toast(`Tema: ${next === "light" ? "claro" : "escuro"}`);
+        const bundle = trans[state.lang];
+        toast(next === "light" ? bundle.toast_theme_light : bundle.toast_theme_dark);
       }
 
       function formatK(n){
@@ -555,13 +723,15 @@
           const min = Math.floor(sec/60);
           const hr = Math.floor(min/60);
           const day = Math.floor(hr/24);
-          if(day >= 2) return `há ${day} dias`;
-          if(day === 1) return "há 1 dia";
-          if(hr >= 2) return `há ${hr} horas`;
-          if(hr === 1) return "há 1 hora";
-          if(min >= 2) return `há ${min} min`;
-          if(min === 1) return "há 1 min";
-          return "agora";
+          const b = trans[state.lang];
+
+          if(day >= 2) return b.rel_days.replace("{n}", day);
+          if(day === 1) return b.rel_day;
+          if(hr >= 2) return b.rel_hrs.replace("{n}", hr);
+          if(hr === 1) return b.rel_hr;
+          if(min >= 2) return b.rel_mins.replace("{n}", min);
+          if(min === 1) return b.rel_min;
+          return b.rel_now;
         }catch(_){ return "—"; }
       }
 
@@ -607,7 +777,8 @@
         if(el("navName")) el("navName").textContent = p.name || "Ivan A. Souza";
         if(el("navSub")) el("navSub").textContent = `@${p.login || USER}`;
 
-        if(el("heroLocation")) el("heroLocation").textContent = p.location || "Brasília, DF";
+        // Don't overwrite if local translation exists and p.location is generic or missing
+        if(el("heroLocation") && p.location) el("heroLocation").textContent = p.location;
         if(el("heroBio") && p.bio && String(p.bio).trim()) el("heroBio").textContent = p.bio.trim();
 
         if(el("sRepos")) el("sRepos").textContent = formatK(p.public_repos || 0);
@@ -632,7 +803,8 @@
         a.target = "_blank";
         a.rel = "noreferrer";
 
-        const desc = r.description ? r.description : "Sem descrição.";
+        const bundle = trans[state.lang];
+        const desc = r.description ? r.description : bundle.no_repos.replace(" encontrados com esses filtros.", "."); // Generic "no description" would be better but let's keep it simple
         const lang = r.language ? r.language : "";
         const langColor = getLanguageColor(lang);
 
@@ -695,7 +867,8 @@
         repoGrid.innerHTML = "";
         
         if(results.length === 0){
-          repoGrid.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--muted); border: 1px dashed var(--border); border-radius: var(--radius);">Nenhum repositório encontrado com esses filtros.</div>`;
+          const bundle = trans[state.lang];
+          repoGrid.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--muted); border: 1px dashed var(--border); border-radius: var(--radius);">${bundle.no_repos}</div>`;
           if(el("repoCount")) el("repoCount").textContent = "";
         } else {
           results.forEach(r => repoGrid.appendChild(projectCard(r)));
@@ -707,6 +880,7 @@
 
       function wireUI(){
         if(el("btnTheme")) el("btnTheme").addEventListener("click", toggleTheme);
+        if(el("btnLang")) el("btnLang").addEventListener("click", toggleLang);
         
         if(el("q")) el("q").addEventListener("input", ()=>{
           state.cfg.q = el("q").value || "";
@@ -755,6 +929,7 @@
 
       async function bootstrap(){
         initTheme();
+        initLang();
         wireUI();
         setupReveal(false);
 
@@ -763,7 +938,7 @@
           applyProfile(cached.profile);
           state.repos = cached.repos;
           if(el("sStars")) el("sStars").textContent = formatK(sumStars(state.repos));
-          if(el("footTime")) el("footTime").textContent = `Dados em cache de ${relTime(cached.at)}`;
+          if(el("footTime")) el("footTime").textContent = trans[state.lang].footer_cache_1 + relTime(cached.at);
           renderProjects();
         }
 
@@ -778,10 +953,10 @@
           }
 
           saveCache(pRes.data, state.repos);
-          if(el("footTime")) el("footTime").textContent = `Sincronizado do GitHub agora.`;
+          if(el("footTime")) el("footTime").textContent = trans[state.lang].footer_sync;
         }catch(_){
           if(!cached){
-            if(el("footTime")) el("footTime").textContent = "Erro na API do GitHub. Tente recarregar.";
+            if(el("footTime")) el("footTime").textContent = trans[state.lang].footer_error;
           }
         }
       }
