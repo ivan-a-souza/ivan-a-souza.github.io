@@ -692,10 +692,10 @@
         const saved = localStorage.getItem(cacheKey("theme"));
         if(saved === "light" || saved === "dark"){
           document.documentElement.setAttribute("data-theme", saved);
-          return;
+        } else {
+          document.documentElement.setAttribute("data-theme", "dark");
+          localStorage.setItem(cacheKey("theme"), "dark");
         }
-        const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-        document.documentElement.setAttribute("data-theme", prefersLight ? "light" : "dark");
       }
       
       function toggleTheme(){

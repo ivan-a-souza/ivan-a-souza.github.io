@@ -21,12 +21,14 @@ A minimalist, premium portfolio website built with vanilla web technologies. It 
 Since the site uses `fetch` for GitHub data and `localStorage`, it's best to run it through a local server.
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/ivan-a-souza/ivan-a-souza.github.io.git
    cd ivan-a-souza.github.io
    ```
 
 2. Run a local server (e.g., using `http-server` or VS Code Live Server):
+
    ```bash
    npx http-server .
    ```
@@ -36,6 +38,7 @@ Since the site uses `fetch` for GitHub data and `localStorage`, it's best to run
 ## ⚙️ Configuration
 
 The main logic is contained within `index.html`. To adapt this for another user:
+
 1. Change the `USER` constant in the script section (line ~499).
 2. Update the static labels and text in the `trans` object.
 3. Update specific social links (LinkedIn, Twitter, etc.) in the HTML structure.
