@@ -564,6 +564,7 @@
           footer_sync: "Sincronizado do GitHub agora.",
           footer_cache_1: "Dados em cache de ",
           footer_error: "Erro na API do GitHub. Tente recarregar.",
+          footer_rate_limit: "Limite de requisições excedido. Exibindo cache de ",
           toast_theme_light: "Tema: claro",
           toast_theme_dark: "Tema: escuro",
           toast_lang: "Idioma: Português",
@@ -621,6 +622,7 @@
           footer_sync: "Synced from GitHub now.",
           footer_cache_1: "Cached data from ",
           footer_error: "GitHub API error. Try reloading.",
+          footer_rate_limit: "API Rate Limit exceeded. Showing cache from ",
           toast_theme_light: "Theme: light",
           toast_theme_dark: "Theme: dark",
           toast_lang: "Language: English",
@@ -748,9 +750,26 @@
         return repos.reduce((acc,r)=>acc + (r.stargazers_count||0), 0);
       }
 
-      function saveCache(profile, repos){
+      async function imgToBase64(url) {
+        try {
+          const res = await fetch(url);
+          const blob = await res.blob();
+          return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.readAsDataURL(blob);
+          });
+        } catch (_) { return null; }
+      }
+
+      function saveCache(profile, repos, avatarBase64){
         try{
-          localStorage.setItem(cacheKey("cache"), JSON.stringify({ at: nowIso(), profile, repos }));
+          localStorage.setItem(cacheKey("cache"), JSON.stringify({ 
+            at: nowIso(), 
+            profile, 
+            repos,
+            avatarBase64
+          }));
         }catch(_){}
       }
       
@@ -771,9 +790,9 @@
         return { ok: res.ok, status: res.status, data };
       }
 
-      function applyProfile(p){
+      function applyProfile(p, b64){
         state.profile = p;
-        if(p.avatar_url && el("avatar")) el("avatar").src = p.avatar_url;
+        if(el("avatar")) el("avatar").src = b64 || p.avatar_url || "";
         if(el("navName")) el("navName").textContent = p.name || "Ivan A. Souza";
         if(el("navSub")) el("navSub").textContent = `@${p.login || USER}`;
 
@@ -934,26 +953,46 @@
         setupReveal(false);
 
         const cached = loadCache();
+        const TTL = 3600000; // 1 hour
+        let useFresh = true;
+
         if(cached){
-          applyProfile(cached.profile);
+          applyProfile(cached.profile, cached.avatarBase64);
           state.repos = cached.repos;
-          if(el("sStars")) el("sStars").textContent = formatK(sumStars(state.repos));
+          const stars = sumStars(state.repos);
+          if(el("sStars")) el("sStars").textContent = formatK(stars);
           if(el("footTime")) el("footTime").textContent = trans[state.lang].footer_cache_1 + relTime(cached.at);
           renderProjects();
+
+          const age = Date.now() - new Date(cached.at).getTime();
+          if(age < TTL) useFresh = false;
         }
+
+        if(!useFresh) return;
 
         try{
           const [pRes, rRes] = await Promise.all([fetchJson(API_PROFILE), fetchJson(API_REPOS)]);
-          if(pRes.ok && pRes.data && pRes.data.login) applyProfile(pRes.data);
-
-          if(rRes.ok && Array.isArray(rRes.data)){
-            state.repos = rRes.data;
-            if(el("sStars")) el("sStars").textContent = formatK(sumStars(state.repos));
-            renderProjects();
+          
+          if(pRes.ok && pRes.data && pRes.data.login) {
+            const b64 = await imgToBase64(pRes.data.avatar_url);
+            applyProfile(pRes.data, b64);
+            
+            if(rRes.ok && Array.isArray(rRes.data)){
+              state.repos = rRes.data;
+              if(el("sStars")) el("sStars").textContent = formatK(sumStars(state.repos));
+              renderProjects();
+              saveCache(pRes.data, state.repos, b64);
+              if(el("footTime")) el("footTime").textContent = trans[state.lang].footer_sync;
+            } else {
+              // Failed repos but profile ok? Still save profile if we have it
+              saveCache(pRes.data, state.repos, b64);
+            }
+          } else if (pRes.status === 403) {
+             // Rate limit or forbidden, keep using cache if exists
+             if(cached && el("footTime")) {
+               el("footTime").textContent = trans[state.lang].footer_rate_limit + relTime(cached.at);
+             }
           }
-
-          saveCache(pRes.data, state.repos);
-          if(el("footTime")) el("footTime").textContent = trans[state.lang].footer_sync;
         }catch(_){
           if(!cached){
             if(el("footTime")) el("footTime").textContent = trans[state.lang].footer_error;
