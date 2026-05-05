@@ -315,6 +315,25 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     .toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+    /* Resume */
+    .resume-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .resume-preview {
+      width: 100%;
+      height: 540px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-top: 20px;
+      background: var(--bg);
+    }
+    @media (max-width: 640px) {
+      .resume-preview { height: 420px; }
+    }
     
   </style>
 </head>
@@ -459,6 +478,24 @@
       </div>
     </section>
 
+    <section id="resume" class="reveal">
+      <h2 data-t="resume_title">Currículo</h2>
+      <div class="card">
+        <p data-t="resume_text">Você pode visualizar ou baixar meu currículo em PDF aqui.</p>
+        <div class="resume-actions">
+          <a class="btn" id="resumeOpen" href="./cv-ivan-augusto-xavier-souza-pt-br.pdf" target="_blank" rel="noreferrer" data-t="resume_open">Abrir currículo</a>
+          <a class="btn" id="resumeDownload" href="./cv-ivan-augusto-xavier-souza-pt-br.pdf" download data-t="resume_download">Baixar PDF</a>
+        </div>
+        <iframe
+          id="resumePreview"
+          class="resume-preview"
+          src="./cv-ivan-augusto-xavier-souza-pt-br.pdf#view=FitH"
+          title="Currículo em PDF"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
     <section id="contact" class="reveal">
       <h2 data-t="contact_title">Contato</h2>
       <div class="card">
@@ -507,6 +544,10 @@
       const USER = "ivan-a-souza";
       const API_PROFILE = `https://api.github.com/users/${USER}`;
       const API_REPOS = `https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`;
+      const RESUME_FILES = {
+        pt: "./cv-ivan-augusto-xavier-souza-pt-br.pdf",
+        en: "./cv-ivan-augusto-xavier-souza-en.pdf"
+      };
 
       const el = (id)=>document.getElementById(id);
 
@@ -559,6 +600,10 @@
           tag_search: "Sistemas de busca",
           tag_modular: "Arquitetura modular",
           focus_text: "Se você tem um produto e quer velocidade sem virar bagunça, eu sou esse tipo de pessoa chata com qualidade 😄",
+          resume_title: "Currículo",
+          resume_text: "Você pode visualizar ou baixar meu currículo em PDF aqui.",
+          resume_open: "Abrir currículo",
+          resume_download: "Baixar PDF",
           contact_title: "Contato",
           contact_text: "Estou aberto a conversar sobre parcerias, consultorias e novos desafios. Sinta-se à vontade para entrar em contato.",
           footer_sync: "Sincronizado do GitHub agora.",
@@ -617,6 +662,10 @@
           tag_search: "Search systems",
           tag_modular: "Modular architecture",
           focus_text: "If you have a product and want speed without making a mess, I'm that kind of person who's picky about quality 😄",
+          resume_title: "Resume",
+          resume_text: "You can view or download my resume as a PDF here.",
+          resume_open: "Open resume",
+          resume_download: "Download PDF",
           contact_title: "Contact",
           contact_text: "I'm open to talk about partnerships, consulting and new challenges. Feel free to reach out.",
           footer_sync: "Synced from GitHub now.",
@@ -690,6 +739,15 @@
         if(el("langLabel")) {
           el("langLabel").textContent = lang === "pt" ? "🇺🇸 EN" : "🇧🇷 PT";
         }
+
+        updateResumeLinks(lang);
+      }
+
+      function updateResumeLinks(lang){
+        const resumeFile = RESUME_FILES[lang] || RESUME_FILES.pt;
+        if(el("resumeOpen")) el("resumeOpen").setAttribute("href", resumeFile);
+        if(el("resumeDownload")) el("resumeDownload").setAttribute("href", resumeFile);
+        if(el("resumePreview")) el("resumePreview").setAttribute("src", `${resumeFile}#view=FitH`);
       }
 
       function initTheme(){
@@ -1009,6 +1067,13 @@
             if(el("footTime")) el("footTime").textContent = trans[state.lang].footer_error;
           }
         }
+
+        // Track page load
+        gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href,
+          page_path: window.location.pathname
+        });
       }
 
       bootstrap();
